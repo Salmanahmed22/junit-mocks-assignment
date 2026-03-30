@@ -18,6 +18,7 @@ class DigitScrubberTest {
         assertEquals("My number is XXXX", result);
     }
 
+    // Sad Path
     @Test
     void shouldNotReplacePriceTokens() {
         String input = "Price is 100$ and code 123";

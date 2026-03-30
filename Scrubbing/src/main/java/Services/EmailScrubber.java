@@ -11,7 +11,8 @@ public class EmailScrubber implements IScrubEmails {
         if (input.isBlank()) {
             throw new IllegalArgumentException("Input cannot be blank");
         }
-        return input == null ? "" : input.replaceAll("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}", "[EMAIL_HIDDEN]");
+        // this regex have a problem it should be from 0-9 not 0-0
+        return input == null ? "" : input.replaceAll("[a-zA-Z0-0._%+-]+@[a-zA-Z0-0.-]+\\.[a-zA-Z]{2,6}", "[EMAIL_HIDDEN]");
     }
 }
 

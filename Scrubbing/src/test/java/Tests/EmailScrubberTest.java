@@ -11,8 +11,16 @@ class EmailScrubberTest {
 
     // Happy Path
     @Test
-    void shouldReplaceEmailWithPlaceholder() {
-        String input = "Contact me at test@gmail.com";
+    void shouldReplaceEmailThatContainsZeroWithPlaceholder() {
+        String input = "Contact me at test0@gmail.com";
+        String result = emailScrubber.scrub(input);
+
+        assertEquals("Contact me at [EMAIL_HIDDEN]", result);
+    }
+    // Sad Path
+    @Test
+    void shouldReplaceEmailWithAnyDigitPlaceholder() {
+        String input = "Contact me at test1@gmail.com";
         String result = emailScrubber.scrub(input);
 
         assertEquals("Contact me at [EMAIL_HIDDEN]", result);
@@ -20,7 +28,7 @@ class EmailScrubberTest {
 
     @Test
     void shouldHandleMultipleEmails() {
-        String input = "a@test.com b@test.com";
+        String input = "0@test.com 0@test.com";
         String result = emailScrubber.scrub(input);
 
         assertEquals("[EMAIL_HIDDEN] [EMAIL_HIDDEN]", result);

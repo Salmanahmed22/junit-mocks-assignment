@@ -6,6 +6,80 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit test suite for StringUtil class.
+ *
+ * ============= REPEAT METHOD: repeat(String s, int n) =============
+ *
+ * PARTITIONS FOR s:
+ *   s1: s = null
+ *   s2: s = "" (empty)
+ *   s3: s = "a" or "ab" (non-empty)
+ *
+ * PARTITIONS FOR n:
+ *   n1: n < 0 (negative)
+ *   n2: n = 0 (boundary)
+ *   n3: n = 1
+ *   n4: n > 1 (multiple)
+ *
+ * BOUNDARY VALUES & EXPECTED BEHAVIOR:
+ *   • s=null, n=5          → null
+ *   • s="a", n=0           → null
+ *   • s="a", n=-1          → null
+ *   • s="", n=5            → ""
+ *   • s="a", n=1           → "a"
+ *   • s="ab", n=3          → "ababab"
+ *
+ * ============= FORMATLEFT METHOD: formatLeft(String s, String mask) =============
+ *
+ * PARTITIONS FOR s:
+ *   s1: s = null
+ *   s2: s = "" (empty)
+ *   s3: s = "abc" (non-empty)
+ *
+ * PARTITIONS FOR mask:
+ *   m1: mask = null
+ *   m2: mask = "" (empty)
+ *   m3: mask = "123" or "123456" (non-empty)
+ *
+ * PARTITIONS FOR length relationship:
+ *   l1: len(s) < len(mask)
+ *   l2: len(s) > len(mask)
+ *   l3: len(s) = len(mask)
+ *
+ * BOUNDARY VALUES & EXPECTED BEHAVIOR:
+ *   • s=null, mask="123"       → "123"
+ *   • s="abc", mask=null       → "abc"
+ *   • s="abc", mask="123456"   → "abc456"
+ *   • s="abcdef", mask="123"   → "abcdef"
+ *   • s="", mask="123"         → "123"
+ *   • s="abc", mask=""         → "abc"
+ *
+ * ============= FORMATRIGHT METHOD: formatRight(String s, String mask) =============
+ *
+ * PARTITIONS FOR s:
+ *   s1: s = null
+ *   s2: s = "" (empty)
+ *   s3: s = "abc" (non-empty)
+ *
+ * PARTITIONS FOR mask:
+ *   m1: mask = null
+ *   m2: mask = "" (empty)
+ *   m3: mask = "123" or "123456" (non-empty)
+ *
+ * PARTITIONS FOR length relationship:
+ *   l1: len(s) < len(mask)
+ *   l2: len(s) > len(mask)
+ *   l3: len(s) = len(mask)
+ *
+ * BOUNDARY VALUES & EXPECTED BEHAVIOR:
+ *   • s=null, mask="123"       → "123"
+ *   • s="abc", mask=null       → "abc"
+ *   • s="abc", mask="123456"   → "123abc"
+ *   • s="abcdef", mask="123"   → "abcdef"
+ *   • s="", mask="123"         → "123"
+ *   • s="abc", mask=""         → "abc"
+ */
 class StringUtilTest {
 
     // ================= repeat =================

@@ -1,0 +1,28 @@
+# --- Java / Maven build outputs ---
+**/target/
+**/bin/
+**/out/
+
+# --- Compiled Java classes ---
+**/*.class
+
+# --- IntelliJ IDEA ---
+.idea/
+**/.idea/
+*.iml
+**/*.iml
+
+# --- Eclipse / legacy IDE metadata ---
+.classpath
+.project
+.settings/
+
+# --- OS and editor noise ---
+.DS_Store
+Thumbs.db
+*.log
+
+# --- JVM crash logs ---
+hs_err_pid*
+replay_pid*
+

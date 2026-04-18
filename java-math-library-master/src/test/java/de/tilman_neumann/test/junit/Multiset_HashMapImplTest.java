@@ -86,7 +86,7 @@ class Multiset_HashMapImplTest {
         multiset = new Multiset_HashMapImpl<>();
     }
 
-    // ================= Constructors =================
+    // ================= Constructors -> Pair-Wise Coverage (PWC) =================
 
     @Test // empty constructor produces empty multiset
     void testConstructor_empty() {
@@ -136,7 +136,7 @@ class Multiset_HashMapImplTest {
         assertNull(multiset.get("c"));
     }
 
-    // ================= add(T entry) =================
+    // ================= add(T entry) -> Each Choice Coverage (ECC) =================
 
     @Test // adding a new entry returns 0 (old multiplicity)
     void testAdd_newEntry() {
@@ -161,7 +161,7 @@ class Multiset_HashMapImplTest {
         assertEquals(3, (int) multiset.get("a"));
     }
 
-    // ================= add(T entry, int mult) =================
+    // ================= add(T entry, int mult) -> Pair-Wise Coverage (PWC) =================
 
     @Test // adding with positive multiplicity
     void testAddWithMult_positive() {
@@ -192,7 +192,7 @@ class Multiset_HashMapImplTest {
         assertEquals(5, (int) multiset.get("a"));
     }
 
-    // ================= addAll(Multiset) =================
+    // ================= addAll(Multiset) -> Pair-Wise Coverage (PWC) =================
 
     @Test // addAll with normal multiset merges correctly
     void testAddAllMultiset_normal() {
@@ -213,7 +213,7 @@ class Multiset_HashMapImplTest {
         assertEquals(1, multiset.size());
     }
 
-    // ================= addAll(Collection) =================
+    // ================= addAll(Collection) -> Pair-Wise Coverage (PWC) =================
 
     @Test // addAll collection with normal list
     void testAddAllCollection_normal() {
@@ -229,7 +229,7 @@ class Multiset_HashMapImplTest {
         assertEquals(1, (int) multiset.get("a"));
     }
 
-    // ================= addAll(T[]) =================
+    // ================= addAll(T[]) -> Pair-Wise Coverage (PWC) =================
 
     @Test // addAll array with normal elements
     void testAddAllArray_normal() {
@@ -245,7 +245,7 @@ class Multiset_HashMapImplTest {
         assertEquals(1, (int) multiset.get("a"));
     }
 
-    // ================= remove(Object key) =================
+    // ================= remove(Object key) -> Each Choice Coverage (ECC) =================
 
     @Test // removing an entry with multiplicity > 1 decrements it
     void testRemove_decrementsMult() {
@@ -268,7 +268,7 @@ class Multiset_HashMapImplTest {
         assertNull(result);
     }
 
-    // ================= remove(T key, int mult) =================
+    // ================= remove(T key, int mult) -> All Combinations Coverage (ACoC) =================
 
     @Test // partial remove reduces multiplicity
     void testRemoveWithMult_partial() {
@@ -298,7 +298,7 @@ class Multiset_HashMapImplTest {
         assertEquals(0, result);
     }
 
-    // ================= removeAll(T key) =================
+    // ================= removeAll(T key) -> Each Choice Coverage (ECC) =================
 
     @Test // removeAll removes the key entirely
     void testRemoveAll_existingKey() {
@@ -314,7 +314,7 @@ class Multiset_HashMapImplTest {
         assertEquals(0, result);
     }
 
-    // ================= intersect =================
+    // ================= intersect -> Each Choice Coverage (ECC) =================
 
     @Test // intersection of overlapping multisets
     void testIntersect_overlapping() {
@@ -354,7 +354,7 @@ class Multiset_HashMapImplTest {
         assertEquals(1, (int) result.get("b"));
     }
 
-    // ================= totalCount =================
+    // ================= totalCount -> Each Choice Coverage (ECC) =================
 
     @Test // totalCount of empty multiset is 0 (boundary)
     void testTotalCount_empty() {
@@ -374,7 +374,7 @@ class Multiset_HashMapImplTest {
         assertEquals(1, multiset.totalCount());
     }
 
-    // ================= toList =================
+    // ================= toList -> Each Choice Coverage (ECC) =================
 
     @Test // toList of empty multiset returns empty list
     void testToList_empty() {
@@ -400,7 +400,7 @@ class Multiset_HashMapImplTest {
         assertEquals(1, countB);
     }
 
-    // ================= toString =================
+    // ================= toString -> Each Choice Coverage (ECC) =================
 
     @Test // toString on empty multiset returns "{}"
     void testToString_empty() {
@@ -422,7 +422,7 @@ class Multiset_HashMapImplTest {
         assertTrue(str.contains("a^3"));
     }
 
-    // ================= equals =================
+    // ================= equals -> Pair-Wise Coverage (PWC) =================
 
     @Test // two empty multisets are equal (boundary)
     void testEquals_bothEmpty() {

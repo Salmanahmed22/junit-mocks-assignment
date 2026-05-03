@@ -54,6 +54,7 @@ import static org.junit.jupiter.api.Assertions.*;
  *   • s="abcdef", mask="123"   → "abcdef"
  *   • s="", mask="123"         → "123"
  *   • s="abc", mask=""         → "abc"
+ *   • s="abc", mask="123"      → "abc"
  *
  * ============= FORMATRIGHT METHOD: formatRight(String s, String mask) =============
  *
@@ -79,6 +80,7 @@ import static org.junit.jupiter.api.Assertions.*;
  *   • s="abcdef", mask="123"   → "abcdef"
  *   • s="", mask="123"         → "123"
  *   • s="abc", mask=""         → "abc"
+ *   • s="abc", mask="123"      → "abc"
  */
 class StringUtilTest {
 
@@ -146,6 +148,10 @@ class StringUtilTest {
         assertEquals("abc", StringUtil.formatLeft("abc", ""));
     }
 
+    @Test
+    void testFormatLeft_equalsMask() {
+        assertEquals("abc", StringUtil.formatLeft("abc", "123"));
+    }
     // ================= formatRight =================
 
     @Test
@@ -176,5 +182,10 @@ class StringUtilTest {
     @Test
     void testFormatRight_emptyMask() {
         assertEquals("abc", StringUtil.formatRight("abc", ""));
+    }
+
+    @Test
+    void testFormatRight_equalsMask() {
+        assertEquals("abc", StringUtil.formatRight("abc", "123"));
     }
 }
